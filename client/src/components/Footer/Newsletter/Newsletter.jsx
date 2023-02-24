@@ -9,7 +9,7 @@ import{
 import "./Newsletter.scss";
 const Newsletter = () => {
     const {location}=useContext(Context);
-    return <div className="newsletter-section" style={location.pathname==='/login' || location.pathname==='/signup'? {display:'none'} : {display:'block'}}>
+    return <div className="newsletter-section" style={location.pathname==='/login' || location.pathname==='/signup' || location.pathname==='/success'? {display:'none'} : {display:'block'}}>
         <div className="newsletter-content">
             <span className="small-text">Newsletter</span>
             <span className="big-text">Sign up for latest updates and offers</span>

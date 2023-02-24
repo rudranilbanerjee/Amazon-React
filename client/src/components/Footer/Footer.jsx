@@ -5,7 +5,7 @@ import Payment from "../../assets/payments.png";
 import {Context} from "../../utils/context";
 const Footer = () => {
     const {location}=useContext(Context);
-    return <footer className="footer" style={location.pathname==='/login' || location.pathname==='/signup'? {display:'none'} : {display:'block'}}>
+    return <footer className="footer" style={location.pathname==='/login' || location.pathname==='/signup' || location.pathname==='/success'? {display:'none'} : {display:'block'}}>
         <div className="footer-content">
             <div className="col">
                 <div className="title">About</div>

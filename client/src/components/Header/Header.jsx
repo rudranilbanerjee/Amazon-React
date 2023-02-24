@@ -43,7 +43,7 @@ const Header = ({login,status}) => {
     },[])
     console.log(location)
     return <>
-        <header className={`main-header ${scrolled ? 'sticky-header' : ""}`} style={location.pathname==='/login' || location.pathname==='/signup'? {display:'none'} : {display:'block'}}>
+        <header className={`main-header ${scrolled ? 'sticky-header' : ""}`} style={location.pathname==='/login' || location.pathname==='/signup' || location.pathname==='/success'? {display:'none'} : {display:'block'}}>
             <div className="header-content">
                 <div className="left" onClick={()=>navigate('/')}><img src={logo} alt="logo"/></div>
                 <ul className="center">
