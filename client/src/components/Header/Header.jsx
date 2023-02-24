@@ -41,10 +41,11 @@ const Header = ({login,status}) => {
     //    console.log("useEffect")
     window.addEventListener('scroll',handleScroll);
     },[])
+    console.log(location)
     return <>
-        <header className={`main-header ${scrolled ? 'sticky-header' : ""}`}>
+        <header className={`main-header ${scrolled ? 'sticky-header' : ""}`} style={location.pathname==='/login' || location.pathname==='/signup'? {display:'none'} : {display:'block'}}>
             <div className="header-content">
-                <div className="left" onClick={()=>navigate('/')}><img width="100" src={logo} alt="logo"/></div>
+                <div className="left" onClick={()=>navigate('/')}><img src={logo} alt="logo"/></div>
                 <ul className="center">
                     <li onClick={()=>navigate('/')}>Home</li>
                     <li>About</li>

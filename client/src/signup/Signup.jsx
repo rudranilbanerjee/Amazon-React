@@ -34,13 +34,15 @@ export default function Signup() {
         }))
     }
   return (
-    <div className='signup'>
-        <img src={logo} alt="amazon-logo" className='logo'/>
-        <input type="text" name="username" value={user.username} onChange={handleUserChange} placeholder="Enter UserName" className='inputBox'/>
-        <input type="email" name="email" value={user.email} onChange={handleUserChange} placeholder="Enter Email/Mobile Number" className='inputBox'/>
-        <input type="password" name="password" value={user.password} onChange={handleUserChange} placeholder="Enter Password" className='inputBox'/>
-        <button className='loginBtn' onClick={signUp}>Sign Up</button>
-        <div className='log'>Already have an account ?<Link to="/login" className="login"> Log In</Link></div>
+    <div className='box'>
+        <div className='signup'>
+            <img src={logo} alt="amazon-logo" className='logo'/>
+            <input type="text" name="username" value={user.username} onChange={handleUserChange} placeholder="Enter UserName" className='inputBox'/>
+            <input type="email" name="email" value={user.email} onChange={handleUserChange} placeholder="Enter Email/Mobile Number" className='inputBox'/>
+            <input type="password" name="password" value={user.password} onChange={handleUserChange} placeholder="Enter Password" className='inputBox'/>
+            <button className='loginBtn' onClick={signUp}>Sign Up</button>
+            <div className='log'>Already have an account ?<Link to="/login" className="login"> Log In</Link></div>
+        </div>
     </div>
   )
 }

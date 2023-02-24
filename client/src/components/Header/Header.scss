@@ -2,7 +2,7 @@
 
 .main-header{
     width:100%;
-    padding: 0 20px;
+    padding: 7px;
     background-color: #131921;
     color:white;
     border-bottom:1px solid rgba(0,0,0,0.1);
@@ -10,16 +10,22 @@
     @include md{
         padding:0 40px;
     }
+    @include sm{
+       padding: 0 20px;
+    }
     .header-content{
         display:flex;
         justify-content: space-between;
         align-items: center;
         height:50px;
         max-width: 90%;
-        margin:0 auto;
+        margin:0;
         // border:1px solid white;
         @include md{
             height:80px;
+        }
+        @include md{
+            margin: 0 auto;
         }
         .left{
             font-size: 22px;
@@ -28,6 +34,14 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            gap:10px;
+            img{
+                width:80px;
+                margin-right:10px;
+            }
+            @include sm{
+                width:100px;
+            }
         }
         .center{
             list-style-type: none;
@@ -79,7 +93,7 @@
                 }
             }
             .login{
-                width:max-content;
+                width:80px;
                 background-color: #e7972f;
                 display: flex;
                 justify-self: center;
@@ -91,6 +105,10 @@
                 border: #764506 solid 2px;
                 border-radius: 3px;
                 cursor: pointer;
+                @include sm{
+                    width:max-content;
+                    padding: 6px 10px;
+                }
                 img{
                     width:30px;
                     height:20px;

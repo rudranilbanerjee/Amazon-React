@@ -1,9 +1,11 @@
-import React from "react";
+import {React,useContext} from "react";
 import "./Footer.scss";
 import { FaLocationArrow, FaMobileAlt, FaEnvelope } from "react-icons/fa";
 import Payment from "../../assets/payments.png";
+import {Context} from "../../utils/context";
 const Footer = () => {
-    return <footer className="footer">
+    const {location}=useContext(Context);
+    return <footer className="footer" style={location.pathname==='/login' || location.pathname==='/signup'? {display:'none'} : {display:'block'}}>
         <div className="footer-content">
             <div className="col">
                 <div className="title">About</div>
@@ -57,7 +59,7 @@ const Footer = () => {
         <div className="bottom-bar">
             <div className="bottom-bar-content">
                 <div className="text">
-                    STEROID 2023 CREATED BY RUDRANIL BANERJEE E-COMMERCE SOLUTIONS.
+                  AMAZON CLONE 2023 CREATED BY RUDRANIL BANERJEE E-COMMERCE SOLUTIONS.
                 </div>
                 <img src={Payment}/>
             </div>

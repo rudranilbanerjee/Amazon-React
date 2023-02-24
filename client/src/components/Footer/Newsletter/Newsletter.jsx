@@ -1,4 +1,5 @@
-import React from "react";
+import {React,useContext} from "react";
+import {Context} from "../../../utils/context";
 import{
     FaFacebookF,
     FaTwitter,
@@ -7,7 +8,8 @@ import{
 } from "react-icons/fa";
 import "./Newsletter.scss";
 const Newsletter = () => {
-    return <div className="newsletter-section">
+    const {location}=useContext(Context);
+    return <div className="newsletter-section" style={location.pathname==='/login' || location.pathname==='/signup'? {display:'none'} : {display:'block'}}>
         <div className="newsletter-content">
             <span className="small-text">Newsletter</span>
             <span className="big-text">Sign up for latest updates and offers</span>

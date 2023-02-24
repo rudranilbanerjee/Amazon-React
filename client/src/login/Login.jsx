@@ -36,14 +36,16 @@ export default function Login() {
         }
     }
   return (
-    <div className="logIn">
-        <img src={logo} alt="amazon-logo" className='logo'/>
-        <input type="email" name="identifier" value={user.identifier} onChange={handleChange} placeholder="Enter Email/Mobile Number" className='inputBox'/>
-        <input type="password" name="password" value={user.password} onChange={handleChange} placeholder="Enter Password" className='inputBox'/>
-        <button className='loginBtn' onClick={handleLogin}>Log In</button>
-        <div className='regis'>
-            <span>New User ?</span>
-            <Link to="/signup" className="login"> Sign Up</Link>
+    <div className="box">
+        <div className="logIn">
+            <img src={logo} alt="amazon-logo" className='logo'/>
+            <input type="email" name="identifier" value={user.identifier} onChange={handleChange} placeholder="Enter Email/Mobile Number" className='inputBox'/>
+            <input type="password" name="password" value={user.password} onChange={handleChange} placeholder="Enter Password" className='inputBox'/>
+            <button className='loginBtn' onClick={handleLogin}>Log In</button>
+            <div className='regis'>
+                <span>New User ?</span>
+                <Link to="/signup" className="login"> Sign Up</Link>
+            </div>
         </div>
     </div>
   )
