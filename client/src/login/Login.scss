@@ -1,0 +1,38 @@
+@import "../css-config/mixins.scss";
+
+.logIn{
+    width:600px;
+    background-color:black;
+    padding:10px;
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    justify-content: center;
+    align-items: center;
+    .logo{
+        width:90px;
+    }
+    input{
+        width:80%;
+        height: 40px;
+        border-radius: 4px;
+        outline: none;
+        padding-left: 30px;
+    }
+    .loginBtn{
+        width:max-content;
+        display: flex;
+        background-color: #e7972f;
+        padding:5px 50px;
+        font-weight: 900;
+        font-size: 18px;
+    }
+    .regis{
+        color:white;
+        .login{
+            text-decoration: none;
+            color:#e7972f;
+            font-weight: 700;
+        }
+    }
+}

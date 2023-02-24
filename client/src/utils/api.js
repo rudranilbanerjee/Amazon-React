@@ -16,6 +16,7 @@ export const fetchDataFromApi= async (url) =>{
         return error;
     }
 }
+
 export const makePaymentRequest=axios.create({
     baseURL:process.env.REACT_APP_DEV_URL,
     headers:{
@@ -23,3 +24,12 @@ export const makePaymentRequest=axios.create({
     },
 
 })
+
+export const storeUser=(data)=>{
+    localStorage.setItem('User-Token',JSON.stringify({
+           userName:data.user.username,
+           jwt:data.jwt,
+           id:data.user.id
+        }
+    ))
+}

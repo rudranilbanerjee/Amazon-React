@@ -6,19 +6,26 @@ import "./Cart.scss";
 import { Context } from "../../utils/context";
 import {loadStripe} from "@stripe/stripe-js"// These are the mentioning step
 import {makePaymentRequest} from "../../utils/api";
+import { redirect, useNavigate } from "react-router-dom";
 const Cart = ({setShowCart}) => {
-    const{cartItems,cartSubTotal}=useContext(Context);
-
+    const{cartItems,cartSubTotal,auth,setAuth,location,setCurrentPath}=useContext(Context);
+    const navigate=useNavigate();
     let stripePromise=loadStripe(
         process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY
     ); //These are the mentioning step
     console.log(stripePromise);
+    const getUser=async ()=>{
+        setCurrentPath(location.pathname);
+        setShowCart(false);
+        navigate("/login");
+    }
     const handlePayment=async ()=>{
         try{
             console.log("hello");
             const stripe=await stripePromise;
             const res=await makePaymentRequest.post("/api/orders",{
                 products:cartItems,
+                UserId:JSON.parse(localStorage.getItem('User-Token')).id,
             });
             console.log(res);
             await stripe.redirectToCheckout({
@@ -57,7 +64,7 @@ const Cart = ({setShowCart}) => {
                       <span className="text total">&#8377;{cartSubTotal}</span>
                    </div>
                    <div className="button">
-                    <button className="checkout-cta" onClick={handlePayment}>Checkout</button>
+                    <button className="checkout-cta" onClick={auth?handlePayment:getUser}>Checkout</button>
                    </div>
                </div>
             </>

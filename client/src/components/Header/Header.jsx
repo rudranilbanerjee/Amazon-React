@@ -10,8 +10,9 @@ import Cart from "../Cart/Cart";
 import {Context} from "../../utils/context";// first export context from context.js file
 import logo from "../../assets/amazon-logo.png"
 import "./Header.scss";
-const Header = () => {
-    const {cartCount}=useContext(Context);
+import loginLogo from "../../assets/login-logo.svg";
+const Header = ({login,status}) => {
+    const {cartCount,location,currentPath,setCurrentPath,setAuth}=useContext(Context);
     const navigate=useNavigate();
     const [scrolled,setScrolled]=useState(false);
     const [showCart,setShowCart]=useState(false);
@@ -23,6 +24,15 @@ const Header = () => {
         }else{
             setScrolled(false);
         }
+    }
+    const loginfunc=()=>{
+        setCurrentPath(location.pathname);
+        navigate('/login');
+    }
+    const logoutfunc=()=>{
+        // e.preventDefault();
+        localStorage.setItem('User-Token','""');
+        setAuth(false);
     }
     document.onclick=()=>{
         setShowCart(false);
@@ -38,7 +48,7 @@ const Header = () => {
                 <ul className="center">
                     <li onClick={()=>navigate('/')}>Home</li>
                     <li>About</li>
-                    <li>Categories</li>
+                    <li onClick={()=>navigate('/myorder')}>My Orders</li>
                 </ul>
                 <div className="right">
                     <TbSearch onClick={()=>{
@@ -52,6 +62,13 @@ const Header = () => {
                         <CgShoppingCart/>
                         <span style={!cartCount?{display:"none",}:{display:"block"}}>{cartCount}</span>
                     </span>
+                    <button className={!status?"login":"logout"} onClick={!status?loginfunc:logoutfunc}>
+                        {!status?<><img src={loginLogo} alt="login-logo"/>
+                        <span>Login</span>
+                        </>
+                        :<span>Logout</span>
+                        }
+                    </button>
                 </div>
             </div>
         </header>

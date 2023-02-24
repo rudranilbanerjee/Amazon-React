@@ -8,8 +8,9 @@ const AppContext=({children})=>{  // children are come as a props and destucturi
     const [cartItems,setCartItems]=useState([]);
     const [cartCount,setCartCount]=useState(0);
     const [cartSubTotal,setCartSubTotal]=useState(0);
+    const [auth,setAuth]=useState(false);
+    const [currentPath,setCurrentPath]=useState("");
     const location=useLocation();
-
     useEffect(()=>{
         // console.log(location);
         window.scrollTo(0,0);
@@ -62,6 +63,9 @@ const AppContext=({children})=>{  // children are come as a props and destucturi
             cartItems,setCartItems,
             cartCount,setCartCount,
             cartSubTotal,setCartSubTotal,
+            auth,setAuth,
+            currentPath,setCurrentPath,
+            location,
             handleAddToCart,
             handleRemoveFromCart,
             handleCartProductQuantity,
